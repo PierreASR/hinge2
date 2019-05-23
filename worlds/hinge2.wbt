@@ -1,0 +1,50 @@
+#VRML_SIM R2019a utf8
+WorldInfo {
+}
+Viewpoint {
+  orientation -0.9969911349109117 0.07117642498998239 0.030701684557979336 0.32523824858243694
+  position 0.21970533429418634 1.3989080975822334 2.070119610295294
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+Floor {
+}
+Solid {
+  translation 0 0.5 0
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0 0 0
+      }
+      geometry DEF G_BLACK_CYLINDER Cylinder {
+        height 1
+        radius 0.15
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        axis 0 1 0
+        anchor 0 1 0
+      }
+      endPoint Solid {
+        translation 0.2 0.505 0
+        children [
+          Shape {
+            appearance PBRAppearance {
+              baseColor 0.9372549019607843 0.1607843137254902 0.1607843137254902
+            }
+            geometry DEF G_RED_BOX Box {
+              size 0.5 0.01 0.1
+            }
+          }
+        ]
+        boundingObject USE G_RED_BOX
+        physics Physics {
+        }
+      }
+    }
+  ]
+  boundingObject USE G_BLACK_CYLINDER
+}
